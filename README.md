@@ -44,3 +44,9 @@ Provision the infrastructure
 ```
 ./infra-provisioning.sh
 ```
+
+SSH connections
+```
+ssh -F ssh.cfg admin@<bastion_public_ip>
+ssh -F ./ssh.cfg -o ProxyCommand="ssh -W %h:%p -F ./ssh.cfg <bastion_public_ip>" admin@<host_private_ip>
+```
